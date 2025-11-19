@@ -38,7 +38,7 @@ require('lazy').setup({
     {'windwp/nvim-autopairs', event = "InsertEnter", opts = {} },
     {'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
     {'lewis6991/gitsigns.nvim'},
-    {'saghen/blink.cmp', version = '1.8.0' , opts = { 'super-tab' } }
+    {'saghen/blink.cmp', version = '1.8.0' , opts = { keymap = { preset = 'super-tab' } } },
 })
 
 require("nvim-treesitter.configs").setup({
@@ -53,3 +53,11 @@ require("nvim-treesitter.configs").setup({
 require('lualine').setup {
     options = { theme = "auto" }
 }
+
+vim.api.nvim_set_hl(0, "Normal",        { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalNC",      { bg = "NONE" })
+vim.api.nvim_set_hl(0, "SignColumn",    { bg = "NONE" })
+vim.api.nvim_set_hl(0, "LineNr",        { bg = "NONE" })
+vim.api.nvim_set_hl(0, "CursorLineNr",  { bg = "NONE" })
+vim.api.nvim_set_hl(0, "NormalFloat",   { bg = "NONE" })
+vim.api.nvim_set_hl(0, "FloatBorder",   { bg = "NONE" })

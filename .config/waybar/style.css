@@ -4,21 +4,16 @@
     font-size: 20px;
 }
 
-@define-color gray rgba(52, 49, 50, 0.5);
-@define-color gray-block rgba(52, 49, 50, 0.9);
-@define-color purple #873388;
-@define-color skin-light #e2dfd3;
-@define-color skin-dark #dcc9a1;
-@define-color eye-orange #e2ad47;
-@define-color hair-red #ff0000;
 @define-color hair-red-tp rgba(203, 66, 86, 0.65);
-
-
+@define-color light-green rgb(47, 166, 38);
+@define-color dark-green rgb(32, 92, 32);
+@define-color aqua-custom rgb(34, 168, 103);
+@define-color gray-custom rgb(225, 225, 225);
 
 window#waybar {
     background-color: transparent;
     background-image: linear-gradient(180deg, black, transparent);
-    color: @eye-orange;
+    color: @light-green;
     transition-property: background-color;
     transition-duration: .5s;
     margin: 12px;
@@ -26,8 +21,8 @@ window#waybar {
 }
 
 .module {
-    border: 2px solid @hair-red-tp;
-    background-color: @gray;
+    border: 2px solid @light-green;
+    background-color: rgba(16, 16, 16, 0.5);
     border-radius: 10px;
     margin: 0px 2px;
     transition-property: all;
@@ -36,7 +31,7 @@ window#waybar {
 }
 
 .module:hover{
-    border-color: @hair-red;
+    border-color: @gray-custom;
 }
 
 window#waybar.hidden {
@@ -76,19 +71,19 @@ button:hover {
     /* font-family: "YujiMai", Roboto, Helvetica, Arial, sans-serif; */
     margin-left: 12px;
     margin-right: 12px;
-    color: @eye-orange;
+    color: @gray-custom;
     padding: 0px;
 }
 
 #workspaces button {
     padding: 2px 8px;
     background-color: transparent;
-    color: @eye-orange;
     border-radius: 50%;
+    color: @gray-custom;
 }
 
 #workspaces button.active {
-    color: @hair-red;
+    color: @aqua-custom;
     margin: 0px;
 }
 
