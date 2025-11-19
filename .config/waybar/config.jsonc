@@ -1,0 +1,90 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 32, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "cava"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "memory",
+        "cpu",
+        "disk"
+    ],
+    
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "sort-by-numer": true
+    },
+
+    "clock": {
+        "interval": 5,
+        "format": "\uf017 {:%H:%M}",
+        "format-alt": "{:%A, %B %d %Y (%R)}   ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "left",
+            "on-scroll"     : -1,
+            "format": {
+                        "months":     "<span color='#ffead3'><b>{}</b></span>",
+                        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                        "today":      "<span color='#cb4256'><b><u>{}</u></b></span>"
+                        }
+            },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-scroll-up": "tz_up",
+                    "on-scroll-down": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+	},
+    "image#image1": {
+        "path": "/home/stas2/Pictures/edward_thisboy.jpg",
+        "size": "32",
+        "interval": 30
+    },
+    "memory": {
+	"tooltip": true,
+        "format": "\u2698 {used:0.1f}G ({percentage}%)",
+        "on-click": "gnome-system-monitor",
+        "interval": 5,
+	"tooltip-format": "Percentage Usage: {percentage}%\nTotal Available: {total}G\nUsed: {used}G\nAvailable: {avail}G",
+	"states": {
+	    "good": 0,
+	    "medium": 20,
+	    "bad": 35
+	}
+    },
+    "cpu": {
+        "tooltip": false,
+        "format": "\uec19 {usage}%",
+        "on-click": "gnome-system-monitor",
+        "interval": 5,
+        "states": {
+            "good": 0,
+            "medium": 15,
+            "bad": 40
+        }
+    },
+    "disk": {
+        "format": "\uf0a0 {percentage_used}%",
+        "interval": 60,
+        "tooltip": false
+    },
+    "cava": {
+        "framerate": 32
+    }
+}

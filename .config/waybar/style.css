@@ -1,0 +1,173 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "DejaVu Sans Mono", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 20px;
+}
+
+@define-color gray rgba(52, 49, 50, 0.5);
+@define-color gray-block rgba(52, 49, 50, 0.9);
+@define-color purple #873388;
+@define-color skin-light #e2dfd3;
+@define-color skin-dark #dcc9a1;
+@define-color eye-orange #e2ad47;
+@define-color hair-red #ff0000;
+@define-color hair-red-tp rgba(203, 66, 86, 0.65);
+
+
+
+window#waybar {
+    background-color: transparent;
+    background-image: linear-gradient(180deg, black, transparent);
+    color: @eye-orange;
+    transition-property: background-color;
+    transition-duration: .5s;
+    margin: 12px;
+    margin-right: 12px
+}
+
+.module {
+    border: 2px solid @hair-red-tp;
+    background-color: @gray;
+    border-radius: 10px;
+    margin: 0px 2px;
+    transition-property: all;
+    transition-duration: 700ms;
+    padding: 4px 5px; 
+}
+
+.module:hover{
+    border-color: @hair-red;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+    background-color: #a37800;
+}
+
+#window,
+#workspaces {
+    /* font-family: "YujiMai", Roboto, Helvetica, Arial, sans-serif; */
+    margin-left: 12px;
+    margin-right: 12px;
+    color: @eye-orange;
+    padding: 0px;
+}
+
+#workspaces button {
+    padding: 2px 8px;
+    background-color: transparent;
+    color: @eye-orange;
+    border-radius: 50%;
+}
+
+#workspaces button.active {
+    color: @hair-red;
+    margin: 0px;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+    /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#memory.good,
+#cpu.good {
+    color: rgb(0, 211, 35);
+}
+
+#memory.medium,
+#cpu.medium {
+    color: rgb(230, 168, 0)
+}
+
+#memory.bad,
+#cpu.bad {
+    color: red;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    /* font-family: "Merienda", Roboto, Helvetica, Arial, sans-serif; */
+    padding: 0 10px;
+    color: @eye-orange;
+}
+
+#battery {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
