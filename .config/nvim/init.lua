@@ -1,4 +1,4 @@
-vim.cmd("set nu")
+vim.cmd("set nu rnu")
 vim.cmd("set nowrap")
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -39,6 +39,18 @@ require('lazy').setup({
     {'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
     {'lewis6991/gitsigns.nvim'},
     {'saghen/blink.cmp', version = '1.8.0' , opts = { keymap = { preset = 'super-tab' } } },
+    {'nvim-tree/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require("nvim-tree").setup({
+                view = {
+                    side = "right",
+                    width = 30,
+                    adaptive_size = false,
+                }    
+            })
+        end 
+    },
+    {'folke/noice.nvim', event = "VeryLazy", dependencies = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify",}, presets = { command_palette = true, } },
 })
 
 require("nvim-treesitter.configs").setup({
@@ -54,6 +66,11 @@ require('lualine').setup {
     options = { theme = "auto" }
 }
 
+local builtin_telescope = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin_telescope.find_files, { desc = 'Telescope find files'})
+vim.keymap.set('n', '<leader>fg', builtin_telescope.live_grep, { desc = 'Telescope live grep' })
+
+-- transparency
 vim.api.nvim_set_hl(0, "Normal",        { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalNC",      { bg = "NONE" })
 vim.api.nvim_set_hl(0, "SignColumn",    { bg = "NONE" })
@@ -61,3 +78,12 @@ vim.api.nvim_set_hl(0, "LineNr",        { bg = "NONE" })
 vim.api.nvim_set_hl(0, "CursorLineNr",  { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat",   { bg = "NONE" })
 vim.api.nvim_set_hl(0, "FloatBorder",   { bg = "NONE" })
+vim.api.nvim_set_hl(0, "EndOfBuffer",   { bg = "NONE" })
+vim.cmd([[
+  highlight NvimTreeNormal guibg=NONE ctermbg=NONE
+  highlight NvimTreeNormalNC guibg=NONE ctermbg=NONE
+  highlight NvimTreeVertSplit guibg=NONE ctermbg=NONE
+  highlight NvimTreeEndOfBuffer guibg=NONE ctermbg=NONE
+]])
+
+vim.cmd("NvimTreeOpen")
