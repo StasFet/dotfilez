@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 alias dotfiles='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
-alias confignvim='nvim ~/.config/nvim/init.lua'
+alias confignvim='cd ~/.config/nvim/; nvim init.lua'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
