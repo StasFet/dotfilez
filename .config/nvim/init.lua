@@ -4,6 +4,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.softtabstop = 4
+vim.opt.clipboard = "unnamedplus"
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -28,7 +29,7 @@ vim.g.maplocalleader = ' '
 require('lazy').setup({
     {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
     {"nvim-telescope/telescope.nvim", tag = 'v0.1.9', dependencies = { 'nvim-lua/plenary.nvim' }},
-    {"navarasu/onedark.nvim", priority = 1000, 
+    {"navarasu/onedark.nvim", priority = 1000,
         config = function()
         require('onedark').setup {style = 'darker'}
             require('onedark').load()
@@ -46,17 +47,29 @@ require('lazy').setup({
                     side = "right",
                     width = 30,
                     adaptive_size = false,
-                }    
+                },
             })
-        end 
+        end,
     },
     {'folke/noice.nvim', event = "VeryLazy", dependencies = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify",}, presets = { command_palette = true, } },
+    require('plugins/lsp'),
+    {"rachartier/tiny-inline-diagnostic.nvim", event = "VeryLazy", priority = 1000, opts = {} ,
+        config = function ()
+           require("tiny-inline-diagnostic").setup({
+                transparent_bg = true,
+                preset = "ghost",
+                options = {
+                    multilines = { enabled = true },
+                }
+            })
+        end
+    }
 })
 
 require("nvim-treesitter.configs").setup({
     highlight = {
         enable = true,
-    }, 
+    },
     indent = {
         enable = true,
     },
@@ -79,6 +92,8 @@ vim.api.nvim_set_hl(0, "CursorLineNr",  { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalFloat",   { bg = "NONE" })
 vim.api.nvim_set_hl(0, "FloatBorder",   { bg = "NONE" })
 vim.api.nvim_set_hl(0, "EndOfBuffer",   { bg = "NONE" })
+vim.api.nvim_set_hl(0, "MatchParen", { bg = "#aaaa22", fg = "#ffffff"})
+vim.api.nvim_set_hl(0, "NonText", { bg = "NONE" })
 vim.cmd([[
   highlight NvimTreeNormal guibg=NONE ctermbg=NONE
   highlight NvimTreeNormalNC guibg=NONE ctermbg=NONE

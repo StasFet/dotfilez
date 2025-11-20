@@ -27,7 +27,7 @@
 
     "clock": {
         "interval": 5,
-        "format": "\uf017 {:%H:%M}",
+        "format": "\uf017 {:%H:%M | %d/%m}",
         "format-alt": "{:%A, %B %d %Y (%R)}   ",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
