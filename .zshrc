@@ -3,9 +3,7 @@
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-alias dotfiles='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
-alias confignvim='cd ~/.config/nvim/; nvim init.lua'
+export TERM="xterm-256color"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -105,4 +103,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+alias dotfiles='git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+alias confignvim='cd ~/.config/nvim/; nvim init.lua'
+alias ls='eza --icons=always '
+alias vtime='/usr/bin/time'
+
+tmux
+clear
 fastfetch

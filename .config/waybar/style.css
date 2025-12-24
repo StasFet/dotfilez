@@ -65,6 +65,10 @@ button:hover {
     background-color: #a37800;
 }
 
+#custom-crypto {
+    font-family: inherit;
+}
+
 #window,
 #workspaces {
     /* font-family: "YujiMai", Roboto, Helvetica, Arial, sans-serif; */

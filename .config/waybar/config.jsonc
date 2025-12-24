@@ -8,12 +8,13 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "cava"
+        "custom/weather"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
+        "mpris",
         "memory",
         "cpu",
         "disk"
@@ -84,7 +85,21 @@
         "interval": 60,
         "tooltip": false
     },
-    "cava": {
-        "framerate": 32
+    "custom/weather": {
+       "exec": "wttrbar",
+       "format": "{}°",
+       "interval": 1800,
+       "tooltip": true,
+       "return-type": "json"
+    },
+    "mpris": {
+        "format": "Music: {status_icon}",
+        "interval": 1,
+        "status-icons": {
+            "playing": "⏸",
+            "paused": "▶",
+            "stopped": "■"
+        },
+    "ignored-players": ["brave"]
     }
 }
